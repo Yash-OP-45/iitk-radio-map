@@ -12,7 +12,7 @@ import seaborn as sns
 import numpy as np
 
 #Enter location of the csv file containing all locations (with Latitude and Longitude)
-locations_df = pd.read_csv(r'https://github.com/Yash-OP-45/iitk-radio-map/blob/main/final_csv/locations.csv')
+locations_df = pd.read_csv(r'../final_csv/locations.csv')
 
 app = dash.Dash(__name__)
 server = app.server
@@ -53,7 +53,7 @@ def update_graph(*args):
     location_name = location['Location']
     
     # Loading CSV (of each location as per 'Location' column of locations.csv file)
-    csv_running_df = pd.read_csv(f"https://github.com/Yash-OP-45/iitk-radio-map/blob/main/final_csv/{location_name}.csv")
+    csv_running_df = pd.read_csv(f"../final_csv/{location_name}.csv")
     csv_running_df['Magnitude (Log Mag dB)'] = pd.to_numeric(csv_running_df['Magnitude (Log Mag dB)'], errors='coerce')
     csv_running_df.dropna(inplace=True)
 
